@@ -4,6 +4,12 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 
 require 'vendor/autoload.php';
 
+session_start();
+
+//require dotenv
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 //display errors for debugging on elivs
 if (env('DB_LOCATION') == 'elvis') {
   ini_set('display_errors', '1');

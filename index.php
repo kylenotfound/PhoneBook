@@ -1,8 +1,7 @@
 <?php
 
-require_once 'app/init.php';
+require_once 'init.php';
 
-use App\Models\User;
 use App\Libraries\Blade;
 
 return Blade::view('welcome');
