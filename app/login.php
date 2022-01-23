@@ -23,6 +23,7 @@ if(isset($_POST['login-submit'])) {
 
   if (password_verify($password, $user->password)) {
     $_SESSION['user'] = $user;
+    $_SESSION['page'] = 'home';
     header("Location: home.php?success=loggedin");  
   } else {
     header("Location: ../index.php?error=invalidpassword");

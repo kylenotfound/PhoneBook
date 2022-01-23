@@ -44,6 +44,7 @@ if (isset($_POST['register-submit'])) {
   ]);
 
   $_SESSION['user'] = $user;
+  $_SESSION['page'] = 'home';
 
   header("Location: home.php?success=registered");
 }

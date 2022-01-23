@@ -13,13 +13,29 @@
   <body>
     <ul class="nav justify-content-center grey lighten-4 py-4">
       <li class="nav-item">
-        <a class="nav-link active" href="../../../index.php">PhoneBook</a>
-      </li>
+        @if ($_SESSION['page'] != 'welcome')
+          @if (env('DB_LOCATION') == 'local')
+            <a class="nav-link active" href="../../../index.php">PhoneBook</a>
+          @else 
+            <a class="nav-link active" href="index.php">PhoneBook</a>
+          @endif
+        @else 
+          <a class="nav-link disabled">PhoneBook</a>
+        @endif
       <li class="nav-item">
         @if (isset($_SESSION['user']))
-          <a class="nav-link" href="../../../app/home.php">Home</a>
+          @if ($_SESSION['page'] != 'home')
+            @if (env('DB_LOCATION') == 'local')
+              <a class="nav-link" href="../../../app/home.php">Home</a>
+            @else 
+              <a class="nav-link" href="app/home.php">Home</a>
+            @endif
+          @else 
+            <a class="nav-link disabled">Home</a>
+          @endif
         @endif
       </li>
+      <!-- TODO about -->
       <li class="nav-item">
         <a class="nav-link" href="../../../app/about.php">About</a>
       </li>
@@ -30,7 +46,11 @@
       </li>
       <li class="nav-item">
         @if(isset($_SESSION['user']))
-          <a class="nav-link" href="../../../app/logout.php">Logout</a>
+          @if (env('DB_LOCATION') == 'local')
+            <a class="nav-link" href="../../../app/logout.php">Logout</a>
+          @else 
+            <a class="nav-link" href="app/logout.php">Logout</a>
+          @endif
         @else
           <a class="nav-link" href="" data-toggle="modal" data-target="#loginModalCenter">Login</a>
         @endif
