@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model as Model;
 use App\Models\User;
+use Carbon\Carbon;
 
 class Record extends Model {
 
@@ -14,6 +15,10 @@ class Record extends Model {
 
   public function user() {
     return $this->belongsTo(User::class);
+  }
+
+  public function getId() {
+    return $this->id;
   }
 
   public function getBuildingName() {
@@ -34,5 +39,13 @@ class Record extends Model {
 
   public function isPrivate() {
     return $this->is_private;
+  }
+
+  public function getFormattedCreatedAt() {
+    return Carbon::parse($this->created_at)->format('m-d-Y');
+  }
+
+  public function getFormattedUpdatedAt() {
+    return Carbon::parse($this->updated_at)->format('m-d-Y');
   }
 }
