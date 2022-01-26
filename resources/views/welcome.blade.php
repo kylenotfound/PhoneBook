@@ -26,16 +26,19 @@
                 <th>User Submitted</th>
                 <th>Created At</th>
                 <th>Updated At</th>
+              </tr>
             </thead>
             <tbody>
               @foreach ($records as $record)
-                <td>{{ $record->getId() }}</td>
-                <td>{{ $record->getBuildingName() }}</td>
-                <td>{{ $record->getAddress() }}</td>
-                <td>{{ $record->getPhoneNumber() }}</td>
-                <td>{{ $record->getSubmittedName() }}</td>
-                <td>{{ $record->getFormattedCreatedAt() }}</td>
-                <td>{{ $record->getFormattedUpdatedAt() }}</td>
+                <tr>
+                  <td>{{ $record->getId() }}</td>
+                  <td>{{ $record->getBuildingName() }}</td>
+                  <td>{{ $record->getAddress() }}</td>
+                  <td>{{ $record->getPhoneNumber() }}</td>
+                  <td>{{ $record->getSubmittedName() }}</td>
+                  <td>{{ $record->getFormattedCreatedAt() }}</td>
+                  <td>{{ $record->getFormattedUpdatedAt() }}</td>
+                </tr>
               @endforeach
             </tbody>
           </table> 
